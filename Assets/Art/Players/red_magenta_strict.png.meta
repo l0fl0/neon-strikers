@@ -1,0 +1,694 @@
+fileFormatVersion: 2
+guid: 124578f7c4e55441ca894cc32f340b37
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 588342777898231340
+    second: red_magenta_strict_0
+  - first:
+      213: 928104739846739246
+    second: red_magenta_strict_1
+  - first:
+      213: -7751145959660372960
+    second: red_magenta_strict_2
+  - first:
+      213: -1776290672046451588
+    second: red_magenta_strict_3
+  - first:
+      213: 5083965271921622789
+    second: red_magenta_strict_4
+  - first:
+      213: 5083348987711863072
+    second: red_magenta_strict_5
+  - first:
+      213: -6815954086857584973
+    second: red_magenta_strict_6
+  - first:
+      213: 2386447832458372281
+    second: red_magenta_strict_7
+  - first:
+      213: -4823046338376700175
+    second: red_magenta_strict_8
+  - first:
+      213: 4788964619249125798
+    second: red_magenta_strict_9
+  - first:
+      213: 8525819346167865842
+    second: red_magenta_strict_10
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: red_magenta_strict_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 768
+        width: 235
+        height: 256
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c266acaa3a63a2800800000000000000
+      internalID: 588342777898231340
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: red_magenta_strict_1
+      rect:
+        serializedVersion: 2
+        x: 497
+        y: 713
+        width: 235
+        height: 256
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e25dbe4f75a41ec00800000000000000
+      internalID: 928104739846739246
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: red_magenta_strict_2
+      rect:
+        serializedVersion: 2
+        x: 760
+        y: 712
+        width: 235
+        height: 256
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 02c3d3821d56e6490800000000000000
+      internalID: -7751145959660372960
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: red_magenta_strict_3
+      rect:
+        serializedVersion: 2
+        x: 1147
+        y: 766
+        width: 235
+        height: 256
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c74d4d28b095957e0800000000000000
+      internalID: -1776290672046451588
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: red_magenta_strict_4
+      rect:
+        serializedVersion: 2
+        x: 1175
+        y: 768
+        width: 235
+        height: 256
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 50f7f439a7fdd8640800000000000000
+      internalID: 5083965271921622789
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: red_magenta_strict_5
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 512
+        width: 235
+        height: 256
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 02938e9b8feab8640800000000000000
+      internalID: 5083348987711863072
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: red_magenta_strict_6
+      rect:
+        serializedVersion: 2
+        x: 322
+        y: 416
+        width: 235
+        height: 256
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3be4b77deddd861a0800000000000000
+      internalID: -6815954086857584973
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: red_magenta_strict_7
+      rect:
+        serializedVersion: 2
+        x: 520
+        y: 416
+        width: 235
+        height: 256
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9b4aea0e8ad5e1120800000000000000
+      internalID: 2386447832458372281
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: red_magenta_strict_8
+      rect:
+        serializedVersion: 2
+        x: 719
+        y: 417
+        width: 235
+        height: 256
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1feeec9a8e8111db0800000000000000
+      internalID: -4823046338376700175
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: red_magenta_strict_9
+      rect:
+        serializedVersion: 2
+        x: 922
+        y: 416
+        width: 235
+        height: 256
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6a9024cb2f1d57240800000000000000
+      internalID: 4788964619249125798
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: red_magenta_strict_10
+      rect:
+        serializedVersion: 2
+        x: 1175
+        y: 512
+        width: 235
+        height: 256
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 72f444ebf045544f4b0b4b55abf53df8
+      internalID: 8525819346167865842
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: red_magenta_strict_11
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 256
+        width: 235
+        height: 256
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 96433c2434e8d441880342351a26fe95
+      internalID: 1562550463
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: red_magenta_strict_12
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 73
+        width: 235
+        height: 256
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cbf3f18c1f9a84d8690420828628657b
+      internalID: -9413397
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: red_magenta_strict_13
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 216
+        width: 235
+        height: 256
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9a5a63940fe8e423c9b6ae351f15f934
+      internalID: 1127779816
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: red_magenta_strict_14
+      rect:
+        serializedVersion: 2
+        x: 29
+        y: 176
+        width: 235
+        height: 256
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cb435c029b45e47e199d69d30dbdc7b9
+      internalID: -1928162320
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: red_magenta_strict_15
+      rect:
+        serializedVersion: 2
+        x: 1280
+        y: 563
+        width: 235
+        height: 256
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3567390663ffe4f459d1f3322af0c92a
+      internalID: -293725158
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: red_magenta_strict_16
+      rect:
+        serializedVersion: 2
+        x: 1175
+        y: 256
+        width: 235
+        height: 256
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 125f1557fb8b541ebb19dd5ef7b0688c
+      internalID: -1778541470
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: red_magenta_strict_17
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 235
+        height: 256
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 32b1bd16075b140f1b4dc0e400664d1f
+      internalID: 1713591986
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: red_magenta_strict_18
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 235
+        height: 256
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 130c1730f6a954e4fbc463a70c8a9181
+      internalID: -1780840047
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: red_magenta_strict_19
+      rect:
+        serializedVersion: 2
+        x: 393
+        y: 42
+        width: 235
+        height: 256
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b83582cc234f640b0bd3aa177c39ee4a
+      internalID: 880475090
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: red_magenta_strict_20
+      rect:
+        serializedVersion: 2
+        x: 639
+        y: 47
+        width: 235
+        height: 256
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1d658b836e07d4777ace4b9f10d46500
+      internalID: -1519968327
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: red_magenta_strict_21
+      rect:
+        serializedVersion: 2
+        x: 881
+        y: 47
+        width: 235
+        height: 256
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4c48c7c52aef6415687872d4472dbbb4
+      internalID: -440032884
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: red_magenta_strict_22
+      rect:
+        serializedVersion: 2
+        x: 1175
+        y: 0
+        width: 235
+        height: 256
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 63d7e349bd0f64f3eaac536e9464e797
+      internalID: -1342736630
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 54c75ee93628e40299f60ddb7cb562ae
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries:
+      - key: SpriteEditor.SliceSettings
+        value: '{"sliceOnImport":false,"gridCellCount":{"x":1.0,"y":1.0},"gridSpriteSize":{"x":235.0,"y":256.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.0},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":7,"pivotUnitMode":0,"slicingType":1,"keepEmptyRects":false,"isAlternate":false}'
+    nameFileIdTable:
+      red_magenta_strict_0: 588342777898231340
+      red_magenta_strict_1: 928104739846739246
+      red_magenta_strict_10: 8525819346167865842
+      red_magenta_strict_11: 1562550463
+      red_magenta_strict_12: -9413397
+      red_magenta_strict_13: 1127779816
+      red_magenta_strict_14: -1928162320
+      red_magenta_strict_15: -293725158
+      red_magenta_strict_16: -1778541470
+      red_magenta_strict_17: 1713591986
+      red_magenta_strict_18: -1780840047
+      red_magenta_strict_19: 880475090
+      red_magenta_strict_2: -7751145959660372960
+      red_magenta_strict_20: -1519968327
+      red_magenta_strict_21: -440032884
+      red_magenta_strict_22: -1342736630
+      red_magenta_strict_3: -1776290672046451588
+      red_magenta_strict_4: 5083965271921622789
+      red_magenta_strict_5: 5083348987711863072
+      red_magenta_strict_6: -6815954086857584973
+      red_magenta_strict_7: 2386447832458372281
+      red_magenta_strict_8: -4823046338376700175
+      red_magenta_strict_9: 4788964619249125798
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

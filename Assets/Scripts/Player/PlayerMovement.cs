@@ -25,16 +25,39 @@ public class PlayerMovement : MonoBehaviour
     public GameObject pulsePrefab;
     public Color pulseColor = Color.cyan;
 
+    [Header("Animation")]
+    public Animator animator;
+    public SpriteRenderer spriteRenderer;
+
+    [Header("Ground Check")]
+    public Transform groundCheck;
+    public float groundCheckRadius = 0.15f;
+    public LayerMask groundLayer;
+
     [HideInInspector] public Vector2 facingDirection = Vector2.right;
 
     private Rigidbody2D rb;
     private Vector2 inputDirection;
     private bool canMove = true;
     private Rigidbody2D ballRb;
+    private ZoneSlowable zoneSlowable;
+    private bool isGrounded;
 
     void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
+
+        zoneSlowable = GetComponent<ZoneSlowable>();
+        if (zoneSlowable == null)
+        {
+            zoneSlowable = gameObject.AddComponent<ZoneSlowable>();
+        }
+
+        if (animator == null)
+            animator = GetComponent<Animator>();
+
+        if (spriteRenderer == null)
+            spriteRenderer = GetComponent<SpriteRenderer>();
     }
 
     void Start()
@@ -51,6 +74,12 @@ public class PlayerMovement : MonoBehaviour
         if (!canMove)
         {
             inputDirection = Vector2.zero;
+
+            if (animator != null)
+            {
+                animator.SetFloat("Speed", 0f);
+            }
+
             return;
         }
 
@@ -69,6 +98,28 @@ public class PlayerMovement : MonoBehaviour
         else if (inputDirection.x > 0)
             facingDirection = Vector2.right;
 
+        // Flip sprite left/right
+        if (spriteRenderer != null)
+        {
+            if (inputDirection.x < 0)
+                spriteRenderer.flipX = true;
+            else if (inputDirection.x > 0)
+                spriteRenderer.flipX = false;
+        }
+
+        // Grounded check
+        if (groundCheck != null)
+        {
+            isGrounded = Physics2D.OverlapCircle(groundCheck.position, groundCheckRadius, groundLayer);
+        }
+
+        // Animator parameters
+        if (animator != null)
+        {
+            animator.SetFloat("Speed", Mathf.Abs(inputDirection.x));
+            animator.SetBool("isGrounded", isGrounded);
+        }
+
         if (Input.GetKeyDown(actionKey))
         {
             DoLift();
@@ -77,16 +128,30 @@ public class PlayerMovement : MonoBehaviour
 
     void FixedUpdate()
     {
-        rb.linearVelocity = new Vector2(inputDirection.x * moveSpeed, rb.linearVelocity.y);
+        float slowMultiplier = 1f;
+
+        if (zoneSlowable != null)
+        {
+            slowMultiplier = zoneSlowable.slowMultiplier;
+        }
+
+        rb.linearVelocity = new Vector2(inputDirection.x * moveSpeed * slowMultiplier, rb.linearVelocity.y);
         ApplySoftPossession();
     }
 
     void DoLift()
     {
+        float slowMultiplier = 1f;
+
+        if (zoneSlowable != null)
+        {
+            slowMultiplier = Mathf.Lerp(1f, zoneSlowable.slowMultiplier, 0.5f);
+        }
+
         rb.linearVelocity = new Vector2(rb.linearVelocity.x, 0f);
 
-        rb.AddForce(Vector2.up * liftForce, ForceMode2D.Impulse);
-        rb.AddForce(inputDirection * directionalLiftForce, ForceMode2D.Impulse);
+        rb.AddForce(Vector2.up * liftForce * slowMultiplier, ForceMode2D.Impulse);
+        rb.AddForce(inputDirection * directionalLiftForce * slowMultiplier, ForceMode2D.Impulse);
 
         SpawnPulse();
         PulseBall();
@@ -151,6 +216,11 @@ public class PlayerMovement : MonoBehaviour
         {
             inputDirection = Vector2.zero;
             rb.linearVelocity = Vector2.zero;
+
+            if (animator != null)
+            {
+                animator.SetFloat("Speed", 0f);
+            }
         }
     }
 
@@ -161,5 +231,11 @@ public class PlayerMovement : MonoBehaviour
 
         Gizmos.color = Color.cyan;
         Gizmos.DrawWireSphere(transform.position, softPossessionRadius);
+
+        if (groundCheck != null)
+        {
+            Gizmos.color = Color.green;
+            Gizmos.DrawWireSphere(groundCheck.position, groundCheckRadius);
+        }
     }
 }

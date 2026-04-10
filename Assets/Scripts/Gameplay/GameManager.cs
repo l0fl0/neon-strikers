@@ -23,6 +23,10 @@ public class GameManager : MonoBehaviour
     public Transform player1SpawnPoint;
     public Transform player2SpawnPoint;
 
+    [Header("Goal Burst VFX")]
+    public ParticleSystem leftGoalBurst;
+    public ParticleSystem rightGoalBurst;
+
     [Header("UI")]
     public TextMeshProUGUI centerMessageText;
 
@@ -130,6 +134,8 @@ public class GameManager : MonoBehaviour
         goalSequenceRunning = true;
         DisableGameplay();
 
+        PlayGoalBurst(scoringTeam);
+
         ApplyGoalResult(scoringTeam);
         UpdateLivesUI();
         ShowGoalMessage(scoringTeam);
@@ -149,6 +155,23 @@ public class GameManager : MonoBehaviour
         goalSequenceRunning = false;
         goalRoutine = null;
         EnableGameplay();
+    }
+
+    void PlayGoalBurst(string scoringTeam)
+    {
+        // scoringTeam tells you which team scored.
+        // If Blue scores, the ball entered the RIGHT goal.
+        // If Red scores, the ball entered the LEFT goal.
+        if (scoringTeam == "Blue")
+        {
+            if (rightGoalBurst != null)
+                rightGoalBurst.Play();
+        }
+        else if (scoringTeam == "Red")
+        {
+            if (leftGoalBurst != null)
+                leftGoalBurst.Play();
+        }
     }
 
     void ApplyGoalResult(string scoringTeam)
