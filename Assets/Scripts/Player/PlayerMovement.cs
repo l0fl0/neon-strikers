@@ -71,15 +71,33 @@ public class PlayerMovement : MonoBehaviour
 
     void Update()
     {
+        UpdateGroundedState();
+        HandleInput();
+        UpdateFacingDirection();
+        UpdateAnimator();
+    }
+
+    void FixedUpdate()
+    {
+        if (!canMove)
+            return;
+
+        float slowMultiplier = 1f;
+
+        if (zoneSlowable != null)
+        {
+            slowMultiplier = zoneSlowable.slowMultiplier;
+        }
+
+        rb.linearVelocity = new Vector2(inputDirection.x * moveSpeed * slowMultiplier, rb.linearVelocity.y);
+        ApplySoftPossession();
+    }
+
+    void HandleInput()
+    {
         if (!canMove)
         {
             inputDirection = Vector2.zero;
-
-            if (animator != null)
-            {
-                animator.SetFloat("Speed", 0f);
-            }
-
             return;
         }
 
@@ -93,50 +111,47 @@ public class PlayerMovement : MonoBehaviour
 
         inputDirection = new Vector2(x, y).normalized;
 
-        if (inputDirection.x < 0)
-            facingDirection = Vector2.left;
-        else if (inputDirection.x > 0)
-            facingDirection = Vector2.right;
-
-        // Flip sprite left/right
-        if (spriteRenderer != null)
-        {
-            if (inputDirection.x < 0)
-                spriteRenderer.flipX = true;
-            else if (inputDirection.x > 0)
-                spriteRenderer.flipX = false;
-        }
-
-        // Grounded check
-        if (groundCheck != null)
-        {
-            isGrounded = Physics2D.OverlapCircle(groundCheck.position, groundCheckRadius, groundLayer);
-        }
-
-        // Animator parameters
-        if (animator != null)
-        {
-            animator.SetFloat("Speed", Mathf.Abs(inputDirection.x));
-            animator.SetBool("isGrounded", isGrounded);
-        }
-
         if (Input.GetKeyDown(actionKey))
         {
             DoLift();
         }
     }
 
-    void FixedUpdate()
+    void UpdateGroundedState()
     {
-        float slowMultiplier = 1f;
-
-        if (zoneSlowable != null)
+        if (groundCheck != null)
         {
-            slowMultiplier = zoneSlowable.slowMultiplier;
+            isGrounded = Physics2D.OverlapCircle(groundCheck.position, groundCheckRadius, groundLayer);
         }
+    }
 
-        rb.linearVelocity = new Vector2(inputDirection.x * moveSpeed * slowMultiplier, rb.linearVelocity.y);
-        ApplySoftPossession();
+    void UpdateFacingDirection()
+    {
+        float horizontal = canMove ? inputDirection.x : rb.linearVelocity.x;
+
+        if (horizontal < -0.05f)
+            facingDirection = Vector2.left;
+        else if (horizontal > 0.05f)
+            facingDirection = Vector2.right;
+
+        if (spriteRenderer != null)
+        {
+            if (horizontal < -0.05f)
+                spriteRenderer.flipX = true;
+            else if (horizontal > 0.05f)
+                spriteRenderer.flipX = false;
+        }
+    }
+
+    void UpdateAnimator()
+    {
+        if (animator == null)
+            return;
+
+        float animationSpeed = canMove ? Mathf.Abs(inputDirection.x) : Mathf.Abs(rb.linearVelocity.x);
+
+        animator.SetFloat("Speed", animationSpeed);
+        animator.SetBool("isGrounded", isGrounded);
     }
 
     void DoLift()
@@ -215,12 +230,6 @@ public class PlayerMovement : MonoBehaviour
         if (!enabled)
         {
             inputDirection = Vector2.zero;
-            rb.linearVelocity = Vector2.zero;
-
-            if (animator != null)
-            {
-                animator.SetFloat("Speed", 0f);
-            }
         }
     }
 

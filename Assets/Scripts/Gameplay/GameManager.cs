@@ -14,6 +14,7 @@ public class GameManager : MonoBehaviour
 
     [Header("Match Settings")]
     public float goalResetDelay = 1.5f;
+    public float finalGoalPause = 1.25f;
 
     [Header("References")]
     public BallController ball;
@@ -23,9 +24,26 @@ public class GameManager : MonoBehaviour
     public Transform player1SpawnPoint;
     public Transform player2SpawnPoint;
 
-    [Header("Goal Burst VFX")]
+    [Header("Regular Goal Burst VFX")]
     public ParticleSystem leftGoalBurst;
     public ParticleSystem rightGoalBurst;
+
+    [Header("Final Goal VFX")]
+    public ParticleSystem finalGoalBlast;
+    public SpriteRenderer arenaRenderer;
+    public float arenaFlashDuration = 1f;
+    public Color blueGoalFlashColor = new Color(0.2f, 0.6f, 1f, 1f);
+    public Color redGoalFlashColor = new Color(1f, 0.25f, 0.25f, 1f);
+
+    [Header("Camera Shake")]
+    public CameraShake2D cameraShake;
+    public float finalShakeDuration = 0.45f;
+    public float finalShakeMagnitude = 0.18f;
+
+    [Header("Lose Launch")]
+    public float losingPlayerLaunchForce = 8f;
+    public Vector2 blueWinLaunchDirection = Vector2.left;
+    public Vector2 redWinLaunchDirection = Vector2.right;
 
     [Header("UI")]
     public TextMeshProUGUI centerMessageText;
@@ -44,8 +62,12 @@ public class GameManager : MonoBehaviour
     private PlayerMovement p2Movement;
     private Rigidbody2D p1Rb;
     private Rigidbody2D p2Rb;
+    private PlayerLoseLaunch p1LoseLaunch;
+    private PlayerLoseLaunch p2LoseLaunch;
 
     private Coroutine goalRoutine;
+    private Coroutine arenaFlashRoutine;
+    private Color arenaOriginalColor = Color.white;
 
     void Awake()
     {
@@ -63,6 +85,10 @@ public class GameManager : MonoBehaviour
     void Start()
     {
         CacheReferences();
+
+        if (arenaRenderer != null)
+            arenaOriginalColor = arenaRenderer.color;
+
         UpdateLivesUI();
         StartCoroutine(StartMatchSequence());
     }
@@ -78,18 +104,21 @@ public class GameManager : MonoBehaviour
         {
             p1Movement = player1.GetComponent<PlayerMovement>();
             p1Rb = player1.GetComponent<Rigidbody2D>();
+            p1LoseLaunch = player1.GetComponent<PlayerLoseLaunch>();
         }
 
         if (player2 != null)
         {
             p2Movement = player2.GetComponent<PlayerMovement>();
             p2Rb = player2.GetComponent<Rigidbody2D>();
+            p2LoseLaunch = player2.GetComponent<PlayerLoseLaunch>();
         }
     }
 
     IEnumerator StartMatchSequence()
     {
         ResetPositions();
+        ResetLoseEffects();
         yield return StartCoroutine(CountdownRoutine());
         EnableGameplay();
     }
@@ -134,22 +163,34 @@ public class GameManager : MonoBehaviour
         goalSequenceRunning = true;
         DisableGameplay();
 
-        PlayGoalBurst(scoringTeam);
+        bool isFinalGoal = IsFinalGoal(scoringTeam);
 
-        ApplyGoalResult(scoringTeam);
-        UpdateLivesUI();
-        ShowGoalMessage(scoringTeam);
-
-        yield return new WaitForSeconds(goalResetDelay);
-
-        if (blueLives <= 0 || redLives <= 0)
+        if (isFinalGoal)
         {
+            ApplyGoalResult(scoringTeam);
+            UpdateLivesUI();
+            ShowGoalMessage(scoringTeam, true);
+
+            PlayFinalGoalBlast(scoringTeam);
+            PlayFinalGoalCameraShake();
+            LaunchLosingPlayer(scoringTeam);
+
+            yield return new WaitForSeconds(finalGoalPause);
+
             EndMatch();
             yield break;
         }
 
-        ResetPositions();
+        PlayRegularGoalBurst(scoringTeam);
 
+        ApplyGoalResult(scoringTeam);
+        UpdateLivesUI();
+        ShowGoalMessage(scoringTeam, false);
+
+        yield return new WaitForSeconds(goalResetDelay);
+
+        ResetPositions();
+        ResetLoseEffects();
         yield return StartCoroutine(CountdownRoutine());
 
         goalSequenceRunning = false;
@@ -157,11 +198,21 @@ public class GameManager : MonoBehaviour
         EnableGameplay();
     }
 
-    void PlayGoalBurst(string scoringTeam)
+    bool IsFinalGoal(string scoringTeam)
     {
-        // scoringTeam tells you which team scored.
-        // If Blue scores, the ball entered the RIGHT goal.
-        // If Red scores, the ball entered the LEFT goal.
+        if (scoringTeam == "Blue")
+            return redLives <= 1;
+
+        if (scoringTeam == "Red")
+            return blueLives <= 1;
+
+        return false;
+    }
+
+    void PlayRegularGoalBurst(string scoringTeam)
+    {
+        // Blue scores in the blue/right goal
+        // Red scores in the red/left goal
         if (scoringTeam == "Blue")
         {
             if (rightGoalBurst != null)
@@ -172,6 +223,106 @@ public class GameManager : MonoBehaviour
             if (leftGoalBurst != null)
                 leftGoalBurst.Play();
         }
+    }
+
+    void PlayFinalGoalBlast(string scoringTeam)
+    {
+        Color flashColor = GetTeamColor(scoringTeam);
+        Vector3 blastPosition = GetFinalBlastPosition(scoringTeam);
+
+        if (finalGoalBlast != null)
+        {
+            finalGoalBlast.transform.position = blastPosition;
+
+            var main = finalGoalBlast.main;
+            main.startColor = flashColor;
+
+            var colorOverLifetime = finalGoalBlast.colorOverLifetime;
+            if (colorOverLifetime.enabled)
+            {
+                Gradient gradient = new Gradient();
+                gradient.SetKeys(
+                    new GradientColorKey[]
+                    {
+                        new GradientColorKey(flashColor, 0f),
+                        new GradientColorKey(flashColor, 1f)
+                    },
+                    new GradientAlphaKey[]
+                    {
+                        new GradientAlphaKey(0.65f, 0f),
+                        new GradientAlphaKey(0f, 1f)
+                    }
+                );
+
+                colorOverLifetime.color = new ParticleSystem.MinMaxGradient(gradient);
+            }
+
+            finalGoalBlast.Clear();
+            finalGoalBlast.Play();
+        }
+
+        if (arenaRenderer != null)
+        {
+            if (arenaFlashRoutine != null)
+                StopCoroutine(arenaFlashRoutine);
+
+            arenaFlashRoutine = StartCoroutine(FlashArena(flashColor));
+        }
+    }
+
+    void PlayFinalGoalCameraShake()
+    {
+        if (cameraShake != null)
+            StartCoroutine(cameraShake.Shake(finalShakeDuration, finalShakeMagnitude));
+    }
+
+    void LaunchLosingPlayer(string scoringTeam)
+    {
+        if (scoringTeam == "Blue")
+        {
+            // Blue wins, Red loses
+            if (p2LoseLaunch != null)
+                p2LoseLaunch.Launch(blueWinLaunchDirection, losingPlayerLaunchForce);
+        }
+        else if (scoringTeam == "Red")
+        {
+            // Red wins, Blue loses
+            if (p1LoseLaunch != null)
+                p1LoseLaunch.Launch(redWinLaunchDirection, losingPlayerLaunchForce);
+        }
+    }
+
+    Vector3 GetFinalBlastPosition(string scoringTeam)
+    {
+        if (scoringTeam == "Blue" && rightGoalBurst != null)
+            return rightGoalBurst.transform.position;
+
+        if (scoringTeam == "Red" && leftGoalBurst != null)
+            return leftGoalBurst.transform.position;
+
+        if (ball != null)
+            return ball.transform.position;
+
+        return Vector3.zero;
+    }
+
+    Color GetTeamColor(string scoringTeam)
+    {
+        if (scoringTeam == "Blue")
+            return blueGoalFlashColor;
+
+        if (scoringTeam == "Red")
+            return redGoalFlashColor;
+
+        return Color.white;
+    }
+
+    IEnumerator FlashArena(Color flashColor)
+    {
+        arenaRenderer.color = flashColor;
+        yield return new WaitForSeconds(arenaFlashDuration);
+        arenaRenderer.color = arenaOriginalColor;
+        arenaFlashRoutine = null;
     }
 
     void ApplyGoalResult(string scoringTeam)
@@ -190,12 +341,15 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    void ShowGoalMessage(string scoringTeam)
+    void ShowGoalMessage(string scoringTeam, bool isFinalGoal)
     {
-        if (centerMessageText != null)
-        {
+        if (centerMessageText == null)
+            return;
+
+        if (isFinalGoal)
+            centerMessageText.text = scoringTeam + " WINS!";
+        else
             centerMessageText.text = scoringTeam + " SCORES!";
-        }
     }
 
     void ResetPositions()
@@ -225,6 +379,15 @@ public class GameManager : MonoBehaviour
             playerRb.linearVelocity = Vector2.zero;
             playerRb.angularVelocity = 0f;
         }
+    }
+
+    void ResetLoseEffects()
+    {
+        if (p1LoseLaunch != null)
+            p1LoseLaunch.ResetLoseVisual();
+
+        if (p2LoseLaunch != null)
+            p2LoseLaunch.ResetLoseVisual();
     }
 
     void EnableGameplay()
@@ -262,9 +425,7 @@ public class GameManager : MonoBehaviour
         for (int i = 0; i < images.Length; i++)
         {
             if (images[i] != null)
-            {
                 images[i].enabled = i < currentLives;
-            }
         }
     }
 

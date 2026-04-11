@@ -1,0 +1,271 @@
+fileFormatVersion: 2
+guid: 51282797179764dc490722458b43c223
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -472263900966241955
+    second: pixelhearts_0
+  - first:
+      213: -1126350133347733514
+    second: pixelhearts_1
+  - first:
+      213: 7368822199487313119
+    second: pixelhearts_2
+  - first:
+      213: 8543021589605160168
+    second: pixelhearts_3
+  - first:
+      213: 3427647369745819286
+    second: pixelhearts_4
+  - first:
+      213: -5743982768294943027
+    second: pixelhearts_5
+  - first:
+      213: -4605366832486935078
+    second: pixelhearts_6
+  - first:
+      213: 1078051864664784045
+    second: pixelhearts_7
+  - first:
+      213: -4312831493654009499
+    second: pixelhearts_8
+  - first:
+      213: -3975085165296352653
+    second: pixelhearts_9
+  - first:
+      213: 6883631267317906768
+    second: pixelhearts_10
+  - first:
+      213: -749507486332246570
+    second: pixelhearts_11
+  - first:
+      213: -590138052708418503
+    second: pixelhearts_12
+  - first:
+      213: 8568745268871127847
+    second: pixelhearts_13
+  - first:
+      213: -2723209142386036557
+    second: pixelhearts_14
+  - first:
+      213: -5569821997040616307
+    second: pixelhearts_15
+  - first:
+      213: -1615265212486864272
+    second: pixelhearts_16
+  - first:
+      213: -164571066552916183
+    second: pixelhearts_17
+  - first:
+      213: -6797402402821632515
+    second: pixelhearts_18
+  - first:
+      213: -8616721910306729641
+    second: pixelhearts_19
+  - first:
+      213: 7740657605515046034
+    second: pixelhearts_20
+  - first:
+      213: 1723372629872482763
+    second: pixelhearts_21
+  - first:
+      213: -990650952325545971
+    second: pixelhearts_22
+  - first:
+      213: 3537500470944673527
+    second: pixelhearts_23
+  - first:
+      213: -367254223655892775
+    second: pixelhearts_24
+  - first:
+      213: -4138198531212999874
+    second: pixelhearts_25
+  - first:
+      213: -246690647172842824
+    second: pixelhearts_26
+  - first:
+      213: 3619466592573363305
+    second: pixelhearts_27
+  - first:
+      213: -5792938147426444729
+    second: pixelhearts_28
+  - first:
+      213: -3626986080378183074
+    second: pixelhearts_29
+  - first:
+      213: -8604343078799338822
+    second: pixelhearts_30
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: pixelhearts_0
+      rect:
+        serializedVersion: 2
+        x: 214
+        y: 273
+        width: 550
+        height: 550
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d59baa6fb7e2279f0800000000000000
+      internalID: -472263900966241955
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pixelhearts_1
+      rect:
+        serializedVersion: 2
+        x: 817
+        y: 275
+        width: 550
+        height: 550
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6ff281975866e50f0800000000000000
+      internalID: -1126350133347733514
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 322b7389343334f7285c9430f130cee4
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries:
+      - key: SpriteEditor.SliceSettings
+        value: '{"sliceOnImport":false,"gridCellCount":{"x":1.0,"y":1.0},"gridSpriteSize":{"x":550.0,"y":550.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.5},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"pivotUnitMode":0,"slicingType":1,"keepEmptyRects":false,"isAlternate":false}'
+    nameFileIdTable:
+      pixelhearts_0: -472263900966241955
+      pixelhearts_1: -1126350133347733514
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
