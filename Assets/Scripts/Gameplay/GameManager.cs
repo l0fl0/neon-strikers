@@ -211,8 +211,6 @@ public class GameManager : MonoBehaviour
 
     void PlayRegularGoalBurst(string scoringTeam)
     {
-        // Blue scores in the blue/right goal
-        // Red scores in the red/left goal
         if (scoringTeam == "Blue")
         {
             if (rightGoalBurst != null)
@@ -280,13 +278,11 @@ public class GameManager : MonoBehaviour
     {
         if (scoringTeam == "Blue")
         {
-            // Blue wins, Red loses
             if (p2LoseLaunch != null)
                 p2LoseLaunch.Launch(blueWinLaunchDirection, losingPlayerLaunchForce);
         }
         else if (scoringTeam == "Red")
         {
-            // Red wins, Blue loses
             if (p1LoseLaunch != null)
                 p1LoseLaunch.Launch(redWinLaunchDirection, losingPlayerLaunchForce);
         }
@@ -442,12 +438,38 @@ public class GameManager : MonoBehaviour
         MatchData.redScore = redLives;
 
         if (blueLives > redLives)
+        {
+            MatchData.blueMatchWins++;
             MatchData.winnerText = "Blue Wins!";
+        }
         else if (redLives > blueLives)
+        {
+            MatchData.redMatchWins++;
             MatchData.winnerText = "Red Wins!";
+        }
         else
+        {
             MatchData.winnerText = "It's a Tie!";
+        }
 
-        SceneManager.LoadScene("Results");
+        LoadNextArenaOrResults();
+    }
+
+    void LoadNextArenaOrResults()
+    {
+        MatchData.currentArenaIndex++;
+
+        if (MatchData.currentArenaIndex == 1)
+        {
+            SceneManager.LoadScene("Arena_02");
+        }
+        else if (MatchData.currentArenaIndex == 2)
+        {
+            SceneManager.LoadScene("Arena_03");
+        }
+        else
+        {
+            SceneManager.LoadScene("Results");
+        }
     }
 }

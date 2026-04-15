@@ -3,28 +3,43 @@ using UnityEngine.SceneManagement;
 
 public class SceneLoader : MonoBehaviour
 {
-    public void LoadGame()
+    void Update()
     {
-        Time.timeScale = 1f;
-        SceneManager.LoadScene("Game");
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            LoadMainMenu();
+        }
     }
 
-    public void LoadMainMenu()
+    public void LoadGame()
     {
-        Time.timeScale = 1f;
-        SceneManager.LoadScene("Main Menu");
+        MatchData.ResetMatch();
+        SceneManager.LoadScene("Arena_01");
+    }
+
+    public void LoadArena02()
+    {
+        SceneManager.LoadScene("Arena_02");
+    }
+
+    public void LoadArena03()
+    {
+        SceneManager.LoadScene("Arena_03");
     }
 
     public void LoadResults()
     {
-        Time.timeScale = 1f;
         SceneManager.LoadScene("Results");
+    }
+
+    public void LoadMainMenu()
+    {
+        MatchData.ResetMatch();
+        SceneManager.LoadScene("Main Menu");
     }
 
     public void QuitGame()
     {
-        Debug.Log("Quit Game");
-
         Application.Quit();
     }
 }
